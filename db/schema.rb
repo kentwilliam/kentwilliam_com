@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20140623072211) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
-    t.text     "content"
+    t.text     "markdown"
+    t.text     "html"
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,7 +1,7 @@
 .articles-edit
   form
     input name='title' placeholder='Title' value=@article.title
-    textarea name='content'
-      = @article.content
+    textarea name='markdown'
+      = @article.markdown
     input type='submit' value='Save'
   .preview

@@ -8,8 +8,7 @@ class Admin::ArticlesController < ApplicationController
   def new
     article = Article.new
     article.published = nil
-    article.save!
-    pp 'created article', article
+    article.save
     redirect_to admin_articles_path
   end
 
@@ -19,7 +18,8 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     article.title = params[:title]
-    article.content = params[:content]
+    article.markdown = params[:markdown]
+    article.html = rendered_content
     article.save
     head :ok
   end
@@ -31,12 +31,16 @@ class Admin::ArticlesController < ApplicationController
   # Preview functionality for more pleasant blog writin'
 
   def preview
-    render text: highlight(markdown.render params[:content])
+    render text: rendered_content
+  end
+
+  def rendered_content
+    highlight(markdown.render params[:markdown])
   end
 
   def highlight(html)
-    document = Nokogiri::HTML(html)
-    document.search("//code").each do |code|
+    document = Nokogiri::HTML.fragment(html)
+    document.css("code").each do |code|
       language = code.get_attribute 'class'
       code.inner_html = pygmentize code.content, language
     end
