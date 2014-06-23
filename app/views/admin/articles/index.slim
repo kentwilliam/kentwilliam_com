@@ -1,1 +1,11 @@
-p Hello World!
+.admin
+  h1 Articles
+
+  ol.articles
+    - @articles.each do |article|
+      li
+        = link_to article.title || '(untitled article)', edit_admin_article_path(article.id)
+        span = article.published || 'unpublished'
+        span = (article.content || '')[0..100]
+
+  = link_to 'Create New Article', new_admin_article_path
