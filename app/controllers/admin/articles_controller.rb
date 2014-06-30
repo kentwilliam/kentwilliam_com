@@ -1,6 +1,8 @@
 require 'pygments'
 
 class Admin::ArticlesController < ApplicationController
+  http_basic_authenticate_with name: "username", password: "password"
+
   def index
     @articles = Article.all
   end
@@ -22,6 +24,12 @@ class Admin::ArticlesController < ApplicationController
     article.html = rendered_content
     article.save
     head :ok
+  end
+
+  def publish
+    article.published = Time.now
+    article.save
+    redirect_to admin_articles_path
   end
 
   def article

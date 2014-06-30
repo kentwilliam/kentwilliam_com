@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :articles do
       member do
+        post 'publish'
         get 'preview'
       end
     end

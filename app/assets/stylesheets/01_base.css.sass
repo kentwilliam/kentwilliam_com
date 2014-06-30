@@ -1,9 +1,19 @@
+$grapegray: #402D32
+$maroon: #B50E4B
+$pink: #E9154A
+$redorange: #E94626
+$orange: #EE601F
+$oker: #F28E1D
+$yellow: #F5AF13
+$lemon: #F8D94B
+$almond: #F9E9A1
+
 *
   box-sizing: border-box
 
 body
   margin: 0
-  font-family: Lora
+  font-family: 'Lato', sans-serif
 
 body,
 input:not([type]),
@@ -41,7 +51,7 @@ button,
   font-weight: bold
 
 code
-  font-size: 14px
+  font-size: 16px
 
 .highlight pre
   font-family: Inconsolata
@@ -50,3 +60,66 @@ code
 .highlight
   border-radius: 4px
   background: #222 !important
+
+.content
+  box-shadow: inset 0 24px 0 $grapegray
+  padding: 24px 20px
+
+.centered
+  margin: 0 auto
+  max-width: 45em
+  padding-top: 5em
+  position: relative
+  background: white
+
+  &:before
+    content: ''
+    position: absolute
+    top: -24px
+    left: 0
+    width: 100%
+    height: 24px
+    box-shadow: inset 24px 0 0 $maroon, inset 48px 0 0 $pink, inset 72px 0 0 $redorange, inset 96px 0 0 $orange, inset 120px 0 0 $oker, inset 144px 0 0 $yellow, inset 168px 0 0 $lemon, inset 192px 0 0 $almond
+
+.header
+  text-transform: uppercase
+  color: #444
+
+  h1
+    font-size: 18px
+    margin: 0 0 .3em
+
+  h2
+    font-size: 17px
+    font-weight: 300
+    margin: 0
+    transform: scale(0.983)
+    transform-origin: top left
+
+.articles
+  font-size: 16px
+  padding-top: 2.4em
+
+  .article
+    padding-bottom: 4em
+
+  h1
+    font-weight: 300
+    text-transform: uppercase
+    font-size: 26px
+    color: $pink
+    margin-bottom: 1em
+    transition: .2s
+
+    @media screen and (min-width: 500px)
+      font-size: 36px
+
+  p,
+  time
+    font-size: 18px
+    line-height: 2em
+    font-weight: 300
+
+  time
+    color: #b0b0b0
+

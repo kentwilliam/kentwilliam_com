@@ -1,0 +1,13 @@
+.content
+  .centered
+    .header
+      h1 Kent William Innholt
+      h2 Interaction Desigineer
+
+    .articles
+      - for article in @articles
+        .article
+          h1 = article.title
+          .article-content
+            == article.html
+          time = article.published.to_time.strftime '%B %e, %l:%M %p'
