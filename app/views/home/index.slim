@@ -7,7 +7,7 @@
     .articles
       - for article in @articles
         .article
-          h1 = article.title
+          h1 = link_to article.title, article
           .article-content
             == article.html
           time = article.published.to_time.strftime '%B %e, %l:%M %p'

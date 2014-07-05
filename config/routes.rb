@@ -56,6 +56,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  resources :articles
+
   namespace :admin do
     resources :articles do
       member do
