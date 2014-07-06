@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   def index
     respond_to do |format|
+      format.html do
+        redirect_to root_path
+      end
       format.rss do
         @articles = articles
         render layout: false
