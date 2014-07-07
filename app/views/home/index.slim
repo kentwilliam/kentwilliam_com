@@ -6,7 +6,7 @@
 
     .articles
       - for article in @articles
-        .article
+        article.article data-uri=article_path(article)
           h1 = link_to article.title, article
           .article-content
             == article.html
