@@ -1,13 +1,20 @@
 .content
   .centered
     .header
-      h1 Kent William Innholt
-      h2 Interaction Desigineer
+      h1 = link_to 'Kent William Innholt', root_path
+      h2 = link_to 'Interaction Desigineer', root_path
 
     .articles
       - for article in @articles
         article.article data-uri=article_path(article)
           h1 = link_to article.title, article
+
           .article-content
             == article.html
+
           time = article.published ? article.published.to_time.strftime('%B %e %Y, %l:%M %p') : 'Unpublished'
+
+          - if action_name == 'show'
+            = render 'comments'
+          - else
+            = link_to 'Comments', article_path(id: article.slug, anchor: 'comments'), class: 'comments-link'
