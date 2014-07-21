@@ -1,7 +1,7 @@
 $ ->
   updatePreview = ->
     $.ajax
-      type: 'GET'
+      type: 'POST'
       url: location.href.replace '/edit', '/preview'
       data: markdown: $('.articles-edit textarea').val()
     .done (result) ->

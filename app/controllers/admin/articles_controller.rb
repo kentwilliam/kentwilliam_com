@@ -39,7 +39,8 @@ class Admin::ArticlesController < ApplicationController
   # Preview functionality for more pleasant blog writin'
 
   def preview
-    render text: rendered_content
+    @articles = [article]
+    render 'home/index', layout: false
   end
 
   def rendered_content
@@ -48,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
 
   def highlight(html)
     document = Nokogiri::HTML.fragment(html)
-    document.css("code").each do |code|
+    document.css("pre code").each do |code|
       language = code.get_attribute 'class'
       code.inner_html = pygmentize code.content, language
     end

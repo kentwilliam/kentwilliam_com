@@ -10,4 +10,4 @@
           h1 = link_to article.title, article
           .article-content
             == article.html
-          time = article.published.to_time.strftime '%B %e, %l:%M %p'
+          time = article.published ? article.published.to_time.strftime('%B %e %Y, %l:%M %p') : 'Unpublished'

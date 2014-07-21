@@ -13,6 +13,9 @@ $almond: #F9E9A1
 
 body
   margin: 0
+  font-family: sans-serif
+
+h1, h2, h3, h4, h5, h6
   font-family: 'Lato', sans-serif
 
 body,
@@ -54,8 +57,11 @@ code
   font-size: 16px
 
 .highlight pre
-  font-family: Inconsolata
+  font-family: Inconsolata, monospace
   padding: 16px
+  line-height: 1.3em
+  margin-bottom: 1.4em
+  font-weight: 300
 
 .highlight
   border-radius: 4px
@@ -67,7 +73,8 @@ code
 
 .centered
   margin: 0 auto
-  max-width: 45em
+  font-size: 16px
+  max-width: 42em
   padding-top: 5em
   position: relative
   background: white
@@ -104,7 +111,7 @@ code
     padding-bottom: 4em
 
   h1
-    font-weight: 300
+    font-weight: 100
     text-transform: uppercase
     font-size: 26px
     color: $pink
@@ -121,12 +128,43 @@ code
     @media screen and (min-width: 500px)
       font-size: 36px
 
-  p,
-  time
+  h2
+    font-size: 22px
+    font-weight: 600
+    margin: 0
+    color: #444
+    margin: 2em 0 .93em
+
+  h3
     font-size: 18px
-    line-height: 1.7em
-    margin-bottom: 1.5em
+    font-weight: 500
+    margin: 0
+    color: #444
+    margin: 2em 0 .93em
+
+  .article-content
+    a
+      color: $pink
+      font-weight: normal
+
+      &:visited
+        color: darken($pink, 15)
+
+  p,
+  time,
+  li
+    line-height: 1.5em
+    margin-bottom: 1.1em
     font-weight: 300
+
+    code
+      font-size: inherit
+      font-family: Inconsolata
+      display: inline
+      padding: 0 .3em
+      background: #eee
+      border: 1px solid #ddd
+      border-radius: 4px
 
   time
     color: #b0b0b0

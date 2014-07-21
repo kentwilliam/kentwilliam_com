@@ -62,7 +62,7 @@ Rails.application.routes.draw do
     resources :articles do
       member do
         post 'publish'
-        get 'preview'
+        post 'preview'
       end
     end
   end
