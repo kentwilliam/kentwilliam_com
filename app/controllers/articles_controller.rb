@@ -12,6 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @page_title = "#{article.title} // Kent William Innholt"
     @articles = [article]
     render 'home/index'
   end
