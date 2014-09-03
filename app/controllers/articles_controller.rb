@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
 
   def show
     @page_title = "#{article.title} // Kent William Innholt"
+    @page_description = article_description
     @articles = [article]
     render 'home/index'
   end
@@ -23,5 +24,12 @@ class ArticlesController < ApplicationController
 
   def articles
     @articles ||= Article.where('published IS NOT NULL').order('published DESC').limit(100)
+  end
+
+  def article_description
+    @article_description ||= begin
+      first_paragraph = /<p>.*?<\/p>/.match(article.html)[0]
+      first_paragraph && first_paragraph.gsub(/<[^>]*>/, '').gsub('"','\\"')
+    end
   end
 end
