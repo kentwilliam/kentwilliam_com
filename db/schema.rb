@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,16 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20140706000554) do
 
-  create_table "articles", force: true do |t|
-    t.string   "title"
-    t.text     "markdown"
-    t.text     "html"
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "markdown"
+    t.text "html"
     t.datetime "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug"
+    t.string "slug"
+    t.index ["slug"], name: "index_articles_on_slug"
   end
-
-  add_index "articles", ["slug"], name: "index_articles_on_slug"
 
 end
