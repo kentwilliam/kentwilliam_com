@@ -1,7 +1,11 @@
 .articles-edit
-  form method='post'
-    input name='title' placeholder='Title' value=@article.title
-    textarea name='markdown'
-      = @article.markdown
-    input type='submit' value='Save'
-  .preview
+  nav.menu
+    = link_to "Back", admin_articles_path
+
+  .content
+    form method='put' action=edit_admin_article_path(@article.id)
+      input name='title' placeholder='Title' value=@article.title
+      textarea name='markdown'
+        = @article.markdown
+      input type='submit' value='Save'
+    .preview

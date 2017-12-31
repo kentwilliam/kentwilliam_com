@@ -7,7 +7,7 @@
         = link_to (article.title.present? ? article.title : '(untitled article)'), edit_admin_article_path(article.id)
         span = article.published || 'unpublished'
         - unless article.published
-          = link_to 'Publish!', publish_admin_article_path(article.id), method: :post
+          = button_to 'Publish!', publish_admin_article_path(article.id)
         span = (article.markdown || '')[0..100]
 
   = link_to 'Create New Article', new_admin_article_path

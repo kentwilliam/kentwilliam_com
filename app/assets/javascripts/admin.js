@@ -1,4 +1,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require lodash
-//= require ./home
+//= require_tree ./admin

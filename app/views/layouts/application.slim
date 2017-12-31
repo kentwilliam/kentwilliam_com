@@ -2,18 +2,31 @@ doctype html
 html
   head
     meta charset="utf-8"
-    title = @page_title || 'Delight &amp; Empower // Kent William Innholt'
+    title = page_title
+
     meta name="description" content=page_description
-    meta name="author" content="Kent William Innholt"
+    meta name="author" content=page_author
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+
+    meta property="og:title" content=page_title
+    meta property="og:type" content=page_type
+    meta property="og:url" content=page_url
+    meta property="og:image" content=page_share_image
+
     link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon"
     link rel="icon" href="/assets/favicon.ico" type="image/x-icon"
+
     = render '/layouts/mixpanel'
+
     = stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Lato:300,400,700,900'
     = stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Inconsolata:400'
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+
+    = javascript_include_tag :application
+
     = csrf_meta_tags
+
     = auto_discovery_link_tag :rss, 'http://kentwilliam.com'
+
   body
     = yield

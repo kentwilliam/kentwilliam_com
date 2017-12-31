@@ -1,3 +1,13 @@
+$grapegray: #402D32
+$maroon: #B50E4B
+$pink: #E9154A
+$redorange: #E94626
+$orange: #EE601F
+$oker: #F28E1D
+$yellow: #F5AF13
+$lemon: #F8D94B
+$almond: #F9E9A1
+
 .admin
   background: #f0f0f0
   margin: 0
@@ -29,6 +39,23 @@
   display: flex
   justify-content: stretch
   overflow: hidden
+  flex-direction: column
+
+  nav
+    flex: 0
+    background: $grapegray
+    padding: 4px 20px
+
+    a
+      color: white
+      text-decoration: none
+      opacity: .5
+
+  .content
+    display: flex
+    justify-content: stretch
+    padding: 0
+    flex: 1
 
   form
     flex: 1
@@ -38,11 +65,12 @@
     display: flex
     flex-direction: column
 
-  [name=content]
+  textarea
     flex-grow: 1
 
   .preview
     flex: 1
-    padding: 40px
+    padding: 16px 40px 40px
     overflow: auto
+    background: white
 

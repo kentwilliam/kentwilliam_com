@@ -1,0 +1,8 @@
+article.article
+  h1
+    = link_to @article.title
+
+  .article-content
+    == @article.html
+
+  time = article_publish_time

@@ -39,8 +39,12 @@ class Admin::ArticlesController < ApplicationController
   # Preview functionality for more pleasant blog writin'
 
   def preview
-    @articles = [article]
-    render 'home/index', layout: false
+    @article = article
+    @article.title = params[:title] if params[:title]
+    @article.markdown = params[:markdown] if params[:markdown]
+    @article.html = rendered_content if params[:markdown]
+
+    render partial: 'articles/article_content'
   end
 
   def rendered_content

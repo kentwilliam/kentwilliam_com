@@ -1,5 +1,5 @@
-class HomeController < ApplicationController
+class HomeController < ArticlesController
   def index
-    @articles = Article.where('published IS NOT NULL').order('published desc')
+    @articles ||= articles
   end
 end

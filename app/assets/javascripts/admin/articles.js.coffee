@@ -1,9 +1,12 @@
 $ ->
   updatePreview = ->
+    form = $('form')[0];
+
     $.ajax
       type: 'POST'
       url: location.href.replace '/edit', '/preview'
-      data: markdown: $('.articles-edit textarea').val()
+      data: $(this).serialize()
+      markdown: $(form).serialize()
     .done (result) ->
       $('.preview').html(result)
 
@@ -16,8 +19,8 @@ $ ->
       console.log '----', result
     false
 
-  $ '.articles-edit textarea'
-    .on 'input', _.debounce updatePreview, 500
+  $ 'input, textarea'
+    .on 'input', _.debounce updatePreview, 150
 
   $ '.articles-edit form'
     .on 'submit', save
