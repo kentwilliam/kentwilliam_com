@@ -2,7 +2,7 @@ article.article
   h1
     = link_to @article.title
 
-  .article-content
+  .rendered_content
     == @article.html
 
-  time = article_publish_time
+  time = @article.formatted_publish_time

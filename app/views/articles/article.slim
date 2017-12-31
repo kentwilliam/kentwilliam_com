@@ -1,6 +1,10 @@
 .content
   .centered
     = render 'shared/header'
-    = render 'article_content'
-    = render 'comments'
+
+  .centered
+    .article_content
+      = render 'article_content'
+      = render 'comments'
+    = render 'shared/menu'
 

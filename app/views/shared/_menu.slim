@@ -1,0 +1,6 @@
+nav.menu
+  ol.articles
+    - for article in @articles
+      li
+        = link_to article.title, article
+        time = article.formatted_publish_time

@@ -8,18 +8,24 @@ $yellow: #F5AF13
 $lemon: #F8D94B
 $almond: #F9E9A1
 
+$light-gray: #f0f0f0
+$secondary-text: #999
+
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+$header-font-family: 'Lato', $font-family
+
 *
   box-sizing: border-box
 
 body
   margin: 0
-  font-family: sans-serif
+  font-family: $font-family
 
 h1,
 h2,
 h3,
 h4
-  font-family: 'Lato', sans-serif
+  font-family: $header-font-family
 
 a
   color: $pink
@@ -41,7 +47,7 @@ select
   line-height: 1.2em
   display: block
   margin: 0 0 1em
-  font-family: sans-serif
+  font-family: $font-family
   padding: 8px 10px 6px
   border-radius: 4px
   border: 1px solid silver
@@ -79,25 +85,69 @@ code
   background: #222 !important
 
 .content
-  box-shadow: inset 0 24px 0 $grapegray
-  padding: 24px 20px
+  box-shadow: inset 0 24px 0 $light-gray
+  padding: 72px 20px
 
-.centered
+.centered, .centered-content
   margin: 0 auto
   font-size: 16px
-  max-width: 42em
-  padding-top: 5em
+  max-width: 54em
+  padding-top: 4em
   position: relative
-  background: white
+  display: flex
+  justify-content: stretch
 
-  &:before
-    content: ''
-    position: absolute
-    top: -24px
-    left: 0
+  @media screen and (max-width: 900px)
+    display: block
+
+.menu
+  flex: none
+  width: 18em
+  padding: 8.08em 0 0 4em
+
+  ol
+    list-style-type: none
+    margin: 0
+    padding: 0
+
+  li
+    font-size: 16px
+    line-height: 1.5em
+    margin: 0 0 4em 0
+
+    &:before
+      content: ''
+      width: 10%
+      height: 4px
+      display: block
+      background: $light-gray
+      margin: 0 0 1.6em
+
+  a
+    color: $pink
+    margin: 0 0 1em 0
+    text-decoration: none
+    font-family: $header-font-family
+
+    &:hover
+      text-decoration: underline
+
+  time
+    display: block
+    color: $secondary-text
+    font-size: 13px
+    text-transform: uppercase
+    font-weight: 300
+    padding-top: .2em
+
+  &.home
     width: 100%
-    height: 24px
-    box-shadow: inset 24px 0 0 $maroon, inset 48px 0 0 $pink, inset 72px 0 0 $redorange, inset 96px 0 0 $orange, inset 120px 0 0 $oker, inset 144px 0 0 $yellow, inset 168px 0 0 $lemon, inset 192px 0 0 $almond
+    padding: 0
+
+    a
+      font-weight: 300
+      font-size: 22px
+
 
 .header
   text-transform: uppercase
@@ -117,9 +167,6 @@ code
       font-weight: 300
     font-size: 17px
     margin: 0
-
-.articles
-  padding-top: 2.4em
 
 .article
   font-size: 16px
@@ -152,7 +199,7 @@ code
     text-transform: uppercase
     font-size: 26px
     color: $pink
-    margin-bottom: 1em
+    margin: 0 0 1em 0
     transition: .2s
 
     @media screen and (min-width: 500px)

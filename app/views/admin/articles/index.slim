@@ -5,9 +5,9 @@
     - @articles.each do |article|
       li
         = link_to (article.title.present? ? article.title : '(untitled article)'), edit_admin_article_path(article.id)
-        span = article.published || 'unpublished'
+        span = article.formatted_publish_time
         - unless article.published
           = button_to 'Publish!', publish_admin_article_path(article.id)
-        span = (article.markdown || '')[0..100]
+        span = article.formatted_summary
 
   = link_to 'Create New Article', new_admin_article_path

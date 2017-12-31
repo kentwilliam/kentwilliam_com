@@ -12,9 +12,10 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @page_title = "#{article.title} // Kent William Innholt"
-    @page_description = article_description
-    @article = article
+    @page_title ||= "#{article.title} // Kent William Innholt"
+    @page_description ||= article.formatted_summary
+    @article ||= article
+    @articles ||= articles
     render 'articles/article'
   end
 
@@ -30,12 +31,4 @@ class ArticlesController < ApplicationController
       .limit(100)
   end
 
-  def article_description
-    @article_description ||= begin
-      paragraphs = /<p>.*?<\/p>/.match(article.html)
-      return "" if paragraphs.nil?
-      first_paragraph = paragraphs[0]
-      first_paragraph && first_paragraph.gsub(/<[^>]*>/, '').gsub('"','\\"')
-    end
-  end
 end

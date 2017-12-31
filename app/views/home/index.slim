@@ -1,9 +1,11 @@
 .content
   .centered
-    = render "shared/header"
+    = render 'shared/header'
 
-    ol.articles
-      - for article in @articles
-        li
-          = link_to article.title, article
-          time = article.published ? article.published.to_time.strftime('%B %e %Y, %l:%M %p') : 'Unpublished'
+  .centered-content
+    nav.menu.home
+      ol.articles
+        - for article in @articles
+          li
+            = link_to article.title, article
+            time = article.formatted_publish_time
